@@ -16,13 +16,19 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Kalam", cursive;
-    font-weight: 500;
-    color: var(--text-color);
 
+}
+
+ul {
+    list-style: none;
 }
 
 a {
     text-decoration: none;
+}
+
+section {
+    padding: 5rem 0;
 }
 
 ::selection {
@@ -34,6 +40,19 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
 }
+
+body.dark-mode {
+    --note-color: #2A4759;
+    --background-color: #121212;
+    --hover-color: #FF6500;
+    --second-text-color: #0B192C;
+    --text-color: #DDDDDD;
+    --accent-color: #FF6500;
+
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 
 .container {
     margin: 0 auto;

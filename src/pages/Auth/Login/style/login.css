@@ -1,5 +1,4 @@
 .login-section {
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,6 +108,7 @@
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
+    color: var(--text-color);
 
 }
 
@@ -122,14 +122,15 @@
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
     cursor: pointer;
+    color: var(--text-color);
 }
 
 .login-section .container .login-form .footer-text p .google-login-btn:hover {
-    color: var(--accent-color);
+    color: var(--hover-color);
 }
 
 .login-section .container .login-form .footer-text p a:hover {
-    color: var(--accent-color);
+    color: var(--hover-color);
 }
 
 .login-section .container .login-form form .input-group .pass-show-btn {
@@ -153,10 +154,11 @@
     -moz-transition: var(--main-transition);
     -ms-transition: var(--main-transition);
     -o-transition: var(--main-transition);
+    color: var(--text-color);
 }
 
 .login-section .container .login-form .input-group .showPass:hover {
-    color: var(--accent-color);
+    color: var(--hover-color);
 }
 
 .login-section .container .paper {
@@ -168,27 +170,22 @@
     height: 500px;
     ;
     background: var(--note-color);
-    box-shadow: 4px 4px 10px #e0dbc3;
+    box-shadow: 4px 4px 10px var(--note-color);
     background-image:
         linear-gradient(90deg,
             var(--note-color) 12px, 0,
-            #f8f8f8 15px, 0,
-            #f0f0f0 20px, 0,
+            var(--background-color) 15px, 0,
+            var(--background-color) 20px, 0,
             var(--note-color) 100%),
         radial-gradient(circle closest-side,
             rgba(255, 255, 255, 0) 88%,
             var(--note-color) 100%),
         radial-gradient(circle at 22px 8px,
-            #ffffff 40%,
-            #e0dbc3 40%,
-            #e0dbc3 100%);
+            var(--background-color) 40%,
+            var(--background-color) 40%,
+            var(--background-color) 100%);
     background-size: 32px 8px, 32px 16px, 32px 16px;
     background-repeat: space no-repeat;
     background-position: center top, center 6px, center 6px;
 
-    &--alt {
-        background-image: linear-gradient(90deg, #fff 12px, 0, #00486B 15px, 0, #1373A9 20px, 0, #fff 100%), radial-gradient(circle closest-side, rgba(255, 255, 255, 0) 88%, #fff 100%), radial-gradient(circle at 22px 8px, #1373A9 40%, #00486B 40%, #00486B 100%);
-        background-image: url("data:image/svg+xml,%3Csvg fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 21'%3E%3Cpath d='M20 0h-7v6.9a7.5 7.5 0 107 0V0z' fill='%231373A9'/%3E%3Cpath d='M13 0h3v6.9a7.5 7.5 0 002 14 7.5 7.5 0 01-9-7.4c0-2.9 1.6-5.4 4-6.6V0z' fill='%2300486B'/%3E%3C/svg%3E");
-        background-size: 2em 1.3125em;
-    }
 }

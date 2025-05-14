@@ -3,14 +3,14 @@ import "./style/login.css";
 import { FaGoogle, FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { validateLogin } from "../../../utils/validateLogin.js";
-import { signInWithPopup, auth, provider } from "../../../firebase"; // adjust the path
+import { signInWithPopup, auth, provider } from "../../../utils/firebase.js"; // adjust the path
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-
+  
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -24,27 +24,30 @@ const Login = () => {
     // Proceed with login logic
     console.log("Logging in with:", { email, password });
   };
-const handleGoogleLogin = async () => {
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
 
-    // Optionally store user data
-    localStorage.setItem("user", JSON.stringify({
-      name: user.displayName,
-      email: user.email,
-      photo: user.photoURL,
-      uid: user.uid,
-    }));
+      // Optionally store user data
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+          uid: user.uid,
+        })
+      );
 
-    alert("Logged in successfully as " + user.displayName);
+      alert("Logged in successfully as " + user.displayName);
 
-    // TODO: redirect or update app state
-  } catch (error) {
-    console.error("Google login error", error);
-    alert("Google login failed");
-  }
-};
+      // TODO: redirect or update app state
+    } catch (error) {
+      console.error("Google login error", error);
+      alert("Google login failed");
+    }
+  };
 
   return (
     <section className="login-section">
@@ -93,10 +96,14 @@ const handleGoogleLogin = async () => {
             </form>
             <div className="footer-text">
               <p className="google-login">
-               <button type="button" onClick={handleGoogleLogin} className="google-login-btn">
-    <FaGoogle className="google-icon" />
-    Login with Google
-  </button>
+                Login with
+                <button
+                  type="button"
+                  onClick={handleGoogleLogin}
+                  className="google-login-btn"
+                >
+                  <FaGoogle className="google-icon" />
+                </button>
               </p>
               <p className="signup-text">
                 Don't have an account?
