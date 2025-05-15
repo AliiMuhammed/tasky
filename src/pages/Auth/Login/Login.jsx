@@ -10,7 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
-  
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -52,66 +52,65 @@ const Login = () => {
   return (
     <section className="login-section">
       <div className="container">
-        <div className="paper">
-          <div className="login-form">
-            <div className="header">
-              <h1>Welcome back!</h1>
+        <div className="login-form">
+          <div className="header">
+            <h1>Welcome back!</h1>
+          </div>
+          <form onSubmit={handleLogin}>
+            <div className="input-group">
+              <input
+                type="text"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              {errors.email && <span className="error">{errors.email}</span>}
             </div>
-            <form onSubmit={handleLogin}>
-              <div className="input-group">
-                <input
-                  type="text"
-                  id="email"
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                {errors.email && <span className="error">{errors.email}</span>}
-              </div>
-              <div className="input-group">
-                <div className="pass-show-btn">
-                  <button
-                    type="button"
-                    className="showPass"
-                    onClick={() => setShowPassword(!showPassword)}
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    id="password"
-                    placeholder="Enter your password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </div>
-
-                {errors.password && (
-                  <span className="error">{errors.password}</span>
-                )}
-              </div>
-              <button type="submit" className="main-btn login-btn">
-                Login
-              </button>
-            </form>
-            <div className="footer-text">
-              <p className="google-login">
-                Login with
+            <div className="input-group">
+              <div className="pass-show-btn">
                 <button
                   type="button"
-                  onClick={handleGoogleLogin}
-                  className="google-login-btn"
+                  className="showPass"
+                  onClick={() => setShowPassword(!showPassword)}
                 >
-                  <FaGoogle className="google-icon" />
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
-              </p>
-              <p className="signup-text">
-                Don't have an account?
-                <Link to="/signup" className="signup-link">
-                  Register here
-                </Link>
-              </p>
+                <input
+                  type={showPassword ? "text" : "password"}
+                  id="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+
+              {errors.password && (
+                <span className="error">{errors.password}</span>
+              )}
             </div>
+            <button type="submit" className="main-btn login-btn">
+              Login
+            </button>
+          </form>
+          <div className="footer-text">
+            <p className="google-login">
+              <button
+                type="button"
+                onClick={handleGoogleLogin}
+                className="google-login-btn second-btn"
+              >
+                Continue with
+                <FaGoogle className="google-icon" />
+                
+              </button>
+            </p>
+            <p className="signup-text">
+              Don't have an account?
+              <Link to="/signup" className="signup-link">
+                Register here
+              </Link>
+            </p>
           </div>
         </div>
       </div>

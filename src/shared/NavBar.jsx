@@ -31,10 +31,7 @@ const NavBar = () => {
   return (
     <header>
       <nav>
-        <div className="container">
-          <div className="logo">
-            <NavLink to="/">Tasky</NavLink>
-          </div>
+
           <ul className="nav-links">
             <li>
               {user && (
@@ -62,7 +59,6 @@ const NavBar = () => {
               </li>
             )}
           </ul>
-        </div>
       </nav>
     </header>
   );

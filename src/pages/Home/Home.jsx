@@ -1,13 +1,17 @@
 import React from "react";
 import "./style/home.css";
+import Sidebar from "./components/Sidebar.jsx";
+import NavBar from "./../../shared/NavBar";
 const Home = () => {
   return (
-    <div>
-      <h1>Home</h1>
-      <p>Welcome to the Tasky app!</p>
-      <p>This is the home page.</p>
-      <p>Here you can find all your tasks and manage them efficiently.</p>
-    </div>
+    <section className="home-section">
+      <div className="left">
+        <Sidebar />
+      </div>
+      <div className="right">
+        <NavBar />
+      </div>
+    </section>
   );
 };
 
